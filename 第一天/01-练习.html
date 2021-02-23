@@ -10,9 +10,21 @@
     <div id="root" >
         <input type="text" v-model="mag"  > <br/>
         <label><input type="checkbox" v-model="data">男生</label>
-        
         <p> {{mag}} </p>
         <p> {{data}} </p>
+
+        <input type="text" v-bind:value="value" >
+        <input type="text" v-model="value" >
+        <input type="text" :value="value" >
+
+
+        <input type="button" value="按钮"  v-on:click="click" >
+        <input type="button" value="按钮"  @click="click" >
+        <input type="text" @change="change" >
+        <input type="text" @input="input" >
+
+
+       
     </div>
     <script src="./vue.js"  ></script>
     <script>
@@ -23,7 +35,13 @@
           el:'#root',
           data:{
               mag,
-              data
+              data,
+              value:'老赵，老赵'
+          },
+          methods:{
+              click(){
+                  console.log('普通写法')  
+              }
           }
       })
       console.log(res)

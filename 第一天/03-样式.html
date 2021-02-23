@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .yellow{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="root" > 
+        <p  class="red"  >come on laozhao</p>
+        <p  :class='color' >come on laozhao</p>
+        <p  :class="{red:isdiv,yellow:!isdiv  }" >come on laozhao</p>
+        <button  v-on:click='click'  >点击变色</button>
+        <p  :style="{ color:'yellow', fontSize:'20px'  }"  >come on laozhao</p>
+        <p    :style="{ color:'yellow', fontSize: fontSize+'px' }">come on laozhao</p>
+        <input type="text"  v-model="fontSize"  >
+    </div>
+    <script src="./vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                color:'red',
+                isdiv:true,
+                fontSize:16
+            },
+            methods:{
+                click(){
+                    this.isdiv=!this.isdiv     
+                  this.color=this.isdiv?'red':'yellow'       
+                }
+            },
+
+        })
+
+    </script>
+</body>
+</html>

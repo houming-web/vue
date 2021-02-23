@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+      姓  <input type="text"  v-model='firstname'  > <br>
+      名  <input type="text"  v-model='lstatname'  ><br>
+      姓名  <input type="text"  v-model='firstname1'  ><br>
+      姓名  <input type="text"  v-model='lstatname2'  ><br>
+
+
+
+    </div>
+
+    <script src="./vue.js" ></script>
+    <script>
+
+        new Vue({
+            el:'#root',
+            data:{
+                firstname:'zhao',
+                lstatname:'xianyong',
+                lstatname2:'zhao xianyong'
+            },
+            // computed:{
+            //     firstname1(){
+            //         return this.firstname+' '+this.lstatname
+            //     }
+            // },
+            computed:{
+                firstname1:{
+                    get(){
+                     return  this.firstname+' '+this.lstatname
+                    },
+                    set(newVal){
+                        const [firstname,lstatname]=newVal.split(' ')
+                        this.lstatname=lstatname
+                        this.firstname=firstname
+                    }
+                }
+            },
+            watch:{
+                lstatname2(newVal,oldVal){
+                    const [firstname,lstatname] =newVal.split(' ')
+                     this.lstatname=lstatname
+                     this.firstname=firstname
+                },
+                firstname(newVal,oldVal){
+                    this.lstatname2=newVal
+
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
