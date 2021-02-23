@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <ul>
+            <li v-for="person in persons" >
+                {{person.id}}---{{person.name}}---{{person.age}}
+            </li>
+
+            <li v-for="value,key in object" > 
+                {{key}}---{{value}}
+            </li>
+        </ul>
+    </div>
+    <script src="./vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                object:{
+                    a:1,
+                    b:2,
+                    c:3,
+                    d:4,
+                    e:5,
+                },
+                persons:[
+                    {id:0,name:'虹猫',age:18},
+                    {id:1,name:'蓝兔',age:16},
+                    {id:2,name:'大奔',age:20},
+                    {id:3,name:'逗逗',age:17},
+                    {id:4,name:'莎莉',age:22},
+                    {id:5,name:'跳跳',age:21},
+                    {id:6,name:'达达',age:23},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

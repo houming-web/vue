@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <p>我的同桌</p>
+        <p v-if='flag' >老赵 </p>
+        <p v-else >老刘</p>
+        <p v-show="flag" >老莫</p>
+        <button @click="click"  >点击切换</button>
+    </div>
+    <script src="./vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                flag:true
+            },
+            methods:{
+                click(){
+                    this.flag=!this.flag
+                }     
+            }
+        })
+    </script>
+</body>
+</html>
