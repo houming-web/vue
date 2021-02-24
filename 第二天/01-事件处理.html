@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <input type="text"  @click='hodomodel'   >
+        <input type="text"  @click='hodomodel1(1,2,3,4) '   >
+        <input type="text"  @click='hodomodel2(1,2,$event) '   >
+        <input type="text"  @click='hodomodel3() '   >
+        
+        <a href='http://baidu.com' @click.prevent >aaaa</a>
+
+        <div @click='hodomodel4'  >111
+            <div @click.stop='hodomodel5' >222</div>
+        </div>
+
+        <input type="text" @keyup.13='hodomodel6'  >
+        <input type="text" @keyup.space='hodomodel7'  >
+    </div>
+    <script src="../vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+
+            },
+            methods:{
+                hodomodel(){
+                    console.log(event) 
+                },
+                hodomodel1(a,b,c,d){
+                    console.log(a,b,c,d,event) 
+                },
+                hodomodel2(a,b,c){
+                    console.log(a,b,c) 
+                },
+                hodomodel3(){
+                    console.log(event) 
+                },
+                hodomodel4(){
+                    console.log(111) 
+                },
+                hodomodel5(){
+                    console.log(222) 
+                },
+                hodomodel6(){
+                    console.log(13) 
+                },
+                hodomodel7(){
+                    console.log('space') 
+                },
+            }
+        })
+    </script>
+</body>
+</html>

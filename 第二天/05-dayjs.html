@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <p> {{data | time('YYYY-MM-DD') }} </p>
+        <p> {{data | time('HH:mm:ss') }} </p>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.10.3/dayjs.min.js"></script>
+    <script src="../vue.js"></script>
+    <script>
+
+         Vue.filter( 'time',function(value,time){ return  dayjs(value).format(time)})
+            
+        
+        new Vue({
+            el:'#root',
+            data:{
+                data:Date.now()
+            },
+            // filters:{
+            //     time(value,time ){
+            //        return  dayjs(value).format(time);
+            //     }
+            // }
+
+        })
+
+    </script>
+</body>
+</html>

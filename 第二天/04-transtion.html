@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter{
+            transform: translateX(100px);
+        }
+        .v-enter-active{
+            transition:transform 2s;
+        }
+        .v-enter-to{
+            transform: translateX(0);
+        }
+        .v-leave{
+            transform: translateX(0);
+        }
+        .v-leave-active{
+            transition:transform 2s;
+        }
+        .v-leave-to{
+            transform: translateX(100px);
+        }
+
+
+
+
+        .zou-enter{
+            transform: translateX(-100px);
+        }
+        .zou-enter-active{
+            transition:transform 2s;
+        }
+        .zou-enter-to{
+            transform: translateX(0) !important  ;
+        }
+        .zou-leave{
+            transform: translateX(0) !important ;
+        }
+        .zou-leave-active{
+            transition:transform 2s;
+        }
+        .zou-leave-to{
+            transform: translateX(-100px);
+        }
+
+        .wei{
+            transform: translateX(100px);
+        }
+        .lai-enter-active{
+            animation: move 5s linear 2s  ;
+        }    
+        @keyframes move {
+            0%{
+                transform:  translateX(0)
+            };
+            50%{
+                transform: scale(2) translateX(200px)
+            };
+            100%{
+                transform: scale(0.5) translateX(100px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root" >
+        <transition>
+        <div v-show='isdiv' >老赵来了，来了</div>
+        </transition>
+
+        <transition name='zou'  >
+            <div v-show='isdiv'  class="wei"  >老赵走了，走了</div>
+        </transition>
+
+        <transition name='lai'  >
+            <div v-show='isdiv'  class="wei"  >老赵走了，走了</div>
+        </transition>
+        
+        <button  @click='click'  >按钮</button>
+
+    </div>
+    <script src="../vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                isdiv:true
+            },
+            methods:{
+                click(){
+                    this.isdiv=!this.isdiv}
+                
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <p>{{num}}</p>
+        <button @click='$destroy()' >按钮</button>
+
+    </div>
+
+    <script src="../vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                num:0
+            },
+            methods:{
+                
+            },
+            beforeCreate(){
+                console.log('beforeCreate')
+            },
+            created(){
+                console.log('created')
+            },
+            beforeMount(){
+                console.log('beforeMount')
+            },
+            mounted(){
+              this.time=setInterval(() => {
+                    this.num++
+                }, 1000);
+                console.log('mounted')
+            },
+            beforeUpdata(){
+                console.log('beforeUpdata')
+            },
+            updataed(){
+                console.log('updataed')
+            },
+            beforeDestroy(){
+                clearInterval(this.time)
+                console.log('beforeDestroy')
+            },
+            destroy(){
+
+            }
+        })
+    </script>
+</body>
+</html>

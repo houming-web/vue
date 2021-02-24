@@ -15,9 +15,9 @@
                 {{person.id}}---{{person.name}}---{{person.age}}
             </li>
         </ul>
-        <button @click="jiang" >年龄降序</button>
-        <button @click="sheng" >年龄升序</button>
-        <button @click="yuan" >恢复原状</button>
+        <button @click="newpersons='desc' " >年龄降序</button>
+        <button @click="newpersons='asc' " >年龄升序</button>
+        <button @click="newpersons='orange' " >恢复原状</button>
     </div>
     <script src="./vue.js" ></script>
     <script>
@@ -34,33 +34,20 @@
                     {id:5,name:'b跳跳',age:21},
                     {id:6,name:'a达达',age:23},
                 ],
-                newpersons:''
-            },
-            methods:{
-                yuan(){       
-                    // console.log(this.persons,2)   
-                    this.newpersons=this.persons    
-                    // console.log(this.persons,3)                 
-                },
-                jiang(){
-                   
-                    this.newpersons=this.newpersons.sort((a,b)=>a.age-b.age)
-                    console.log(this.newpersons)
-                },
-                sheng(){
-                    this.newpersons=this.newpersons.sort((a,b)=>b.age-a.age)                 
-                },
-              
-            },
+                newpersons:'orange'
+            },         
             computed:{
-                personss(){            
-                    // this.newpersons=[...this.persons]  
-                    this.newpersons=this.persons
-                    //  this.newpersons=JSON.parse(JSON.stringify(this.persons))
-                    const res=  this.newpersons.filter(ming=>{
+                personss(){   
+                    const res=this.persons.filter(ming=>{
                        return ming.name.includes(this.xia)
                    }) 
-                   return res          
+                   if(this.newpersons==='orange'){  return res}else{
+                   
+                       const personsnew=this.newpersons==='asc'?res.sort((a,b)=>a.age-b.age):res.sort((a,b)=>b.age-a.age)
+
+                       return personsnew}
+                       return res
+                      
                 }
             }
         })
