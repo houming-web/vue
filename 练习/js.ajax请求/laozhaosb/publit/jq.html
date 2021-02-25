@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">请求点击</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        const but =document.getElementById('but')
+        but.onclick=function(){
+            $.ajax({
+                type:'post',
+                url:'http://localhost:5000/hou',
+                data:{
+                    name:'laozhao'
+                },
+                dataType:'json',
+                beforeSend:function(){
+                    console.log('开始把')
+                },
+                complete:function(){
+                    console.log('结束了')
+                },
+                success:function(data){
+                    console.log('成功了',data)
+                },
+                error:function(xhr){
+                    console.log(xhr)
+                }
+            })
+        }
+    </script>
+</body>
+</html>

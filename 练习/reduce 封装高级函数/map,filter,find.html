@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr=[{a:1},{a:2},{a:1},{a:4},{a:6},{a:3},{a:2}]
+    //     Array.prototype.mymap=function(callback){
+    //         return this.reduce((a,b,c)=>{
+    //           const re=  callback(b,c)
+    //           a.push(re)
+    //           return a
+    //         },[])
+    //     }
+    //   const newarr=  arr.mymap((item,index)=>{
+    //         item.sex='man';
+    //         item.num=3;
+    //         return item
+    //     })
+    //     console.log(newarr)
+    //     console.log(arr)
+
+    //     Array.prototype.myfilter=function(callback){
+    //         return this.reduce((a,b,c)=>{
+    //            const re= callback(b,c)
+    //            if(re){
+    //             a.push(b)
+    //            }
+    //            return a
+    //         },[])
+    //     }
+    //   const newarr=  arr.myfilter((item,index)=>{
+    //        return item.a>3
+    //     })
+    //     console.log(newarr)
+    //     console.log(arr)
+
+    
+    let arr=[{a:1},{a:2},{a:1},{a:4},{a:6},{a:3},{a:2}]
+        Array.prototype.myfind=function(callback){
+            return this.reduce((a,b,c)=>{
+             let re= callback(b,c)
+             if(re)
+             a.push(b)
+             return a
+            },[])[0]
+        }
+      const newarr=  arr.myfind(item=>{
+        //   console.log(item.a>3)
+            return (item.a>3)
+        })
+        // const newarr1=arr.find(item=>{
+        //     return item.a>3
+        // })
+        // console.log(newarr1)
+        console.log(newarr)
+    </script>
+</body>
+</html>

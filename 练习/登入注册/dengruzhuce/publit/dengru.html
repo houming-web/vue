@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:5003/dengru" method="POST">
+        用户名:   <input type="text" name="name" required><span style="color: red;"></span><br>
+        密码:   <input type="password" name="password" required><span style="color: red;"></span><br>
+           <input type="submit" value="登入">
+    </form>
+
+    <script>
+        const name=document.querySelector('input[name=name]');
+        const paw=document.querySelector('input[name=password]');
+        const sub=document.querySelector('input[type=submit]');
+
+        //定义三个开关
+        let nameflag=false;
+        let pawflag=false;
+
+        name.onblur=function(){
+            //获取数据
+            const value=this.value;
+            //判断正则
+            const panduanzhi=/^[A-Za-z0-9]{6,18}$/.test(value);
+
+            if(panduanzhi){
+                this.nextElementSibling.innerText=''
+                nameflag=true;
+            }else{
+             this.nextElementSibling.innerText='请输出6~18位的字母，数字'
+             nameflag=false;
+            }
+        }
+         paw.onblur=function(){
+            //获取数据
+            const value=this.value;
+            //判断正则
+            const panduanzhi=/^[\w]{6,18}$/.test(value);
+
+            if(panduanzhi){
+                paw.nextElementSibling.innerText=''
+                pawflag=true
+            }else{
+             paw.nextElementSibling.innerText='请输出6~18位的字母，数字'
+             pawflag=false;
+            }
+        }
+        sub.onclick=function(e){
+            if(!(pawflag&&nameflag)){
+             e.preventDefault()
+            }
+        }
+    </script>
+</body>
+</html>

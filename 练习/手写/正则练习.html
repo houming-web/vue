@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="inp">
+    <script>
+        // const re1=/[0-9]/;//和\d一样，表示数字
+        // const re1=/\D/;//和[a-z]一样，表示字母
+        // const re2='asdgadfeao35o3p4jo3i4p34';
+        // console.log(re2[0]);
+        // console.log(re2.search(re1));
+
+
+        const IPU=document.getElementById('inp');
+        console.log(IPU)
+        const re1=/\d/;
+        const re2=/\D/;
+
+        IPU.onchange=function(){
+            const re3=this.value;
+
+            // if(re1.test(re3)){
+            //     alert('老赵是傻逼')
+            // }else {
+            //     alert('老赵不是傻逼')
+            // }
+
+            if(re2.test(re3)){
+                alert('老赵是傻逼')
+            }else {
+                alert('老赵不是傻逼')
+            }
+        }
+    </script>
+</body>
+</html>

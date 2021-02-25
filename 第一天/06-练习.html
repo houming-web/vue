@@ -39,8 +39,8 @@
             methods:{
                 yuan(){       
                     // console.log(this.persons,2)   
-                    this.newpersons=this.persons    
-                    // console.log(this.persons,3)                 
+                    this.newpersons=[...this.persons]    
+                    console.log(this.newpersons)                 
                 },
                 jiang(){
                    
@@ -48,19 +48,21 @@
                     console.log(this.newpersons)
                 },
                 sheng(){
-                    this.newpersons=this.newpersons.sort((a,b)=>b.age-a.age)                 
+                    this.newpersons=this.newpersons.sort((a,b)=>b.age-a.age)  
+                    console.log(this.newpersons)              
                 },
-              
             },
             computed:{
-                personss(){            
-                    // this.newpersons=[...this.persons]  
-                    this.newpersons=this.persons
+                personss(){  
+                    if(this.newpersons===''){
+                        this.newpersons=[...this.persons]
+                    }          
+                    // this.newpersons=this.persons
                     //  this.newpersons=JSON.parse(JSON.stringify(this.persons))
                     const res=  this.newpersons.filter(ming=>{
                        return ming.name.includes(this.xia)
-                   }) 
-                   return res          
+                   })
+                   return res
                 }
             }
         })

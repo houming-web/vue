@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var url = 'http://www.baidu.com:80?user=laoli&pass=123456';
+     
+        // var newurl=url.split('?')[1].split('&');
+        // console.log(newurl);
+        // var obj={};
+        // newurl.forEach(function(item,index){
+        //     item.split('=');
+        //     var key=item.split('=')[0];
+
+        //     var value=item.split('=')[1]
+        //     obj[key]=value;
+        // })
+        // console.log(obj)
+
+        //拼接
+        var ax={user:"laoli",pass:"123456"};
+        var ay="http://www.baidu.com:80";
+        for(var key in ax){
+            var str=key+"="+ax[key]+"&";
+            str+=str;
+        }
+        var newurl=(ay+"?"+str).slice(0,-1);
+        console.log(newurl);
+
+    </script>
+</body>
+</html>

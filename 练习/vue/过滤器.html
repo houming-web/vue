@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <p>显示时间</p>
+        <p>{{time | date('YYYY-MM-DD') }} </p>
+        <p>{{time | date('HH:mm:ss') }}</p>
+        <p>{{mas}}</p>
+        <p>{{time}}</p>
+        <p>{{time | times('YYYY-MM-DD') }} </p>
+        <p>{{'Date.new()' | times('HH:mm:ss') }}</p>
+        <button @click="newtime" >点击更新 </button>
+    </div>
+    <script src="../vue.js"  ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.10.3/dayjs.min.js"></script>
+    <script>
+        Vue.filter('times', function(tiem,value){
+            return dayjs(tiem).format(value)
+        })
+
+        new Vue({
+            el:'#root',
+            data:{
+               time:Date.now() 
+            },
+            methods:{
+                newtime(){
+                  this.time= dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                }
+            },
+            updated(){
+                
+                this.time=Date.now()   
+                console.log(this.time) 
+            },
+            computed:{
+                mas(){
+                  return  dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                }
+            },
+            filters:{
+                date(time,value){
+                  return  dayjs(time).format(value)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

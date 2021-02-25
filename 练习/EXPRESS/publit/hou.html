@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">点击请求</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        $('#but').on('click',()=>{
+            const xhr=new XMLHttpRequest();
+            xhr.open('post','http://localhost:5001/HM')
+            xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+            xhr.send('name=laozhao&age=19')
+
+            //响应
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===2){
+                        console.log('老赵')
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

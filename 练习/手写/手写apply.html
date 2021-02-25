@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype.myapply=function(fn){
+            if(fn===null||fn===undefined){
+                fn=window;
+            }
+            if(typeof obj==='number'){
+                obj=new Number(obj)
+            }
+            if(typeof obj==='string'){
+                obj=new String(obj)
+            }
+            if(typeof obj==='boolean'){
+                obj=new Boolean(obj)
+            }
+
+            var age=arguments[1];
+
+            var key=Date.now().toString(36);
+
+            fn[key]=this;
+
+            var fan=eval('fn[key]('+age.toString()+')');
+
+            delete fn[key];
+
+            // var fan=this.call(fn,arguments[1].toString());
+
+            return fan;
+        }
+
+
+        function fn(arr){
+            console.log(this);
+            console.log(this.name);
+            console.log(arr);
+            return arr
+        }
+        const obj={
+            name:'老赵',
+        }
+       console.log(fn.myapply(obj,[1,2,3])) ;
+       console.log(fn.apply(obj,[1,2,3]))
+    </script>
+</body>
+</html>

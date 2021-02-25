@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="asdf" id="inp">
+    <input type="text" id="ipu" value="请输入电话号码">
+    <script>
+        // var IPU = document.querySelector('#ipu');
+        var IPU = document.getElementById('inp');
+ IPU.onfocus = function () {
+            if (this.value === '请输入电话号码') {
+                this.value = '';
+                alert('老苏')
+            }
+        }
+        
+   
+        // var INP=document.getElementById('inp');
+        //     INP.onblur=function(){
+        //         alert('come.on')
+        //     }
+        //     INP.onfocus=function(){
+        //         alert('zouni')
+        //     }
+    </script>
+</body>
+
+</html>

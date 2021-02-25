@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">点击添加</button>
+    <ul id="ul">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        //新
+        // var BUT=document.querySelector('#but');
+        // var lis=document.querySelectorAll('li');
+        // var UL=document.querySelector('ul')
+        // BUT.onclick=function(){
+        //     var newLIS=document.createElement('li');
+        //     UL.append(newLIS);
+        // }
+        // console.log(lis)
+
+         //旧
+         var BUT=document.getElementById('but')
+        var lis=document.getElementsByTagName('li')
+        var UL=document.getElementById('ul')
+        BUT.onclick=function(){
+            var newLIS=document.createElement('li');
+            UL.append(newLIS);
+
+            console.log(lis)
+        }
+        
+    </script>
+</body>
+</html>

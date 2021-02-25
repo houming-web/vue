@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">请求点击</button>
+    <script>
+        const but =document.getElementById('but')
+        but.onclick=function(){
+            const xhr=new XMLHttpRequest()
+            xhr.open('post','http://localhost:5000/hm')
+            xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+            xhr.send("name=zhaoshan")
+
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        console.log('老朱')
+                        console.log(xhr.responseText)
+                        // const re=JSON.parse(xhr.responseText)
+                        // console.log(re)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

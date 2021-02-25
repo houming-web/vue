@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+        <p v-lower-cose="mas" >{{mas}} </p>
+        <p v-upper-cose="mas" >{{mas}} </p>
+        <p v-splice="mas" >{{mas}} </p>
+    </div>
+    <script src="../vue.js" ></script>
+    <script>
+
+        Vue.directive('splice',function(el,binding){
+            // el.textContent=binding.value.split('e')
+            el.textContent=binding.value.substr(2,1)
+        })
+        new Vue({
+            el:'#root',
+            data:{
+                mas:"Amareken"
+            },
+            directives:{
+                ["lower-cose"](el,binding){
+                    console.log(binding)
+                  el.textContent=binding.value.toLowerCase()
+                },
+                ["upper-cose"](el,binding){
+                    console.log(binding)
+                  el.textContent=binding.value.toUpperCase()
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

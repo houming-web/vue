@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,1,2,3,4,4,4,4,2,3,3,5,5,5,3,7,7];
+         var newarr=[arr[0]];
+        // function qucong(arr){
+        //   arr.forEach(function(item,index){
+        //         if(newarr.indexOf(item)===-1){
+        //             newarr.push(item)
+        //         }
+        //     })
+        //     return newarr;
+        // }
+        // qucong(arr);
+        // console.log(qucong(arr))
+
+        // function qucong(arr){
+        //     for(i=0;i<arr.length;i++){
+        //         for(j=i+1;j<=arr.length;j++){
+        //             if(arr[i]===arr[j]){
+        //                 arr.splice(j,1)
+                       
+        //                j--
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // qucong(arr);
+        // console.log(qucong(arr))
+
+        function qucong(arr){
+            for(i=0;i<arr.length;i++){
+                var flag=true;
+                for(j=0;j<newarr.length;j++){
+                    if(arr[i]===newarr[j]){
+                       flag=false;
+                    }
+                   
+                }
+                if(flag){
+                        newarr.push(arr[i])
+                    }
+            }
+            return newarr;
+        }
+        qucong(arr);
+        console.log(qucong(arr))
+    </script>
+</body>
+</html>

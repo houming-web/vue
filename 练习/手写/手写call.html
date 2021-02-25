@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function.prototype.myCall=function(type){
+        //     var types=typeof type;
+        //     if(type===null||type===undefined){
+        //         type=window;
+        //     }
+        //     if(types==='number'){
+        //         type=new Number(type)
+        //     }
+        //     if(types==='string'){
+        //         type=new String(type)
+        //     } if(types==='boolean'){
+        //         type=new Boolean(type);
+        //     }
+        //     //获取type的参数
+        //     var agr=Array.from(arguments).slice(1);
+        //    // 创建一永远不重复发数
+        // var key=Date.now().toString(36);
+        //     //在type中扩展一个属性明为key方法，这是方法就是调用函数，当type执行时，调用函数的this指向type
+        // type[key]=this;
+        //     //type[key]调用并传参
+        // var diaoyong=eval('type[key]('+agr.toString()+')');
+        //    // 之后删除这个属性
+        // delete type[key];
+
+        // return diaoyong;
+        // }
+        
+
+        Function.prototype.myCall=function(obj){
+            if(obj===null||obj===undefined){
+                obj=window;
+            }
+            if(typeof obj==='number'){
+                obj=new Number(obj)
+            }
+            if(typeof obj==='string'){
+                obj=new String(obj)
+            }
+            if(typeof obj==='boolean'){
+                obj=new Boolean(obj)
+            }
+
+            const age=Array.from(arguments).slice(1);
+
+            const  key=Date.now().toString(36);
+
+            obj[key]=this;
+
+            var fan=eval("obj[key]("+age.toString()+")");
+
+            delete obj[key];
+
+            return fan;
+        }
+
+        var obj = {
+            name: "laowang",
+            fn: function () {
+                console.log("hello")
+            }
+        }
+
+        function fn1(a, b) {
+            console.log(this, a + b)
+            return "123";
+        }
+
+        console.log(fn1.call(obj, 1, 2));
+        fn1.call(null, 1, 2);
+        fn1.call(undefined, 1, 2);
+        fn1.call(1, 1, 2);
+        fn1.call("str", 1, 2);
+        fn1.call(true, 1, 2);
+
+        fn1.myCall(obj, 1, 2);
+        fn1.myCall(null, 1, 2);
+        fn1.myCall(undefined, 1, 2);
+        fn1.myCall(1, 1, 2);
+        fn1.myCall("str", 1, 2);
+        fn1.myCall(true, 1, 2);
+    </script>
+</body>
+</html>

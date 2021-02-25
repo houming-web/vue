@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function mynew(fn){
+            
+        //     var obj={};
+
+        //     var gai=fn.apply(obj,Array.from(arguments).slice(1));
+        //     console.log(arguments);
+
+        //     obj.proto=fn.prototype;
+
+        //     if(typeof gai==='object'&& gai!='null'){
+        //         return gai
+        //     }
+        //     if(typeof gai==='function'){
+        //         return gai
+        //     }
+        //     return obj;
+        // }
+        // var a=1;
+        // var b=2;
+        // var c=4;
+        // var fn=function(a,b,c){
+        //     console.log(this);
+        //   this.a=a;
+        //   this.b=b;
+        //   this.c=c;
+        // }
+       
+        // // fn(1,2,3);
+        // var p=mynew(fn,1,2,3);
+        // console.log(p)
+        // var p1=new fn(1,2,3);
+        // console.log(p1)
+
+        function MYnew(fn){
+            var objnew={};
+
+            objnew.__proto__=fn.prototype;
+             
+            var age=Array.from(arguments).slice(1);
+
+            var fan=fn.apply(objnew,age);
+             
+        //   var fan=  fn.apply(object,[...rest]);
+
+            if(typeof fan==='object'&&fan!=null){
+                return fan;
+            }
+            if(typeof fan==='function'){
+                return fan;
+            }
+            return objnew;
+        } 
+           
+        function fn(a,b,c){
+            console.log(this);
+          this.a=a;
+          this.b=b;
+          this.c=c;
+        }
+
+
+        console.log(MYnew(fn,1,2,3))
+
+        var x=new fn(1,2,3);
+        console.log(x)
+    </script>
+</body>
+</html>

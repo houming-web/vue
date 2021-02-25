@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" >
+       姓名： <input type="text" v-model="name" >
+       分数: <input type="number" v-model="num" >
+       <button  @click="tijiao" >提交 </button>
+        <br>
+        <ul>
+            <li v-for='parse in user '  :key='parse.id'  >
+                {{parse.names}}:{{parse.nums}}
+            </li>
+        </ul>
+
+        <span>总分：{{zongfen}} </span>
+        <span>平均分: {{pingjunfen}}  </span>
+    </div>
+    <script src="../vue.js" ></script>
+    <script>
+        new Vue({
+            el:'#root',
+            data:{
+                user:[
+                    {
+                      names:'老赵',
+                      nums:20,
+                      id:0
+                    },
+                    {
+                      names:'老刘',
+                      nums:90,
+                      id:1
+                    },
+                    {
+                      names:'老叶',
+                      nums:90,
+                      id:2
+                    },
+                    {
+                      names:'老莫',
+                      nums:90,
+                      id:3
+                    },
+                ],
+                name:'',
+                num:'',
+                allnum:0
+            },
+            methods:{
+            
+                tijiao(){
+                    const obj={
+                       names:this.name ,
+                       nums:Number(this.num),
+                      id:this.user[this.user.length-1].id+1
+                }
+                    this.user.push(obj)
+                }
+            },
+            computed:{
+                zongfen(){
+                    console.log(this.user)
+                    this.allnum=0
+                    this.user.forEach(item => {
+                         this.allnum+=item.nums
+                         console.log(this.allnum)
+                    });
+                    return this.allnum
+                },
+                pingjunfen(){
+                     return this.allnum/this.user.length
+                }
+            }
+        })
+    </script>
+</body>
+</html>

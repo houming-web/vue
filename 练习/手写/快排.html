@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [1, 2, 1, 4, 2, 5, 9, 4, 5, 2, 3, 11];
+
+        // function kuaipai(arr) {
+        //     if (pandian(arr) !== 'array') {
+        //         return
+        //     }
+        //     if (arr.length <= 1) {
+        //         return arr
+        //     }
+        //     var left = [];
+        //     var right = [];
+        //     var concer = arr.splice(Math.floor(arr.length/2), 1);
+        //     arr.forEach(function (item, index) {
+        //         if (item <= concer) {
+        //             left.push(item)
+        //         } else {
+        //             right.push(item)
+        //         }
+        //     })
+        //     var newarr=[].concat(kuaipai(left),concer,kuaipai(right));
+        //     return newarr
+        // }
+        // console.log(kuaipai(arr));
+
+
+        // function pandian(obj) {
+        //     return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+        // }
+        // console.log(pandian(arr));
+
+
+            const arr=[1,7,3,2,8,2,9,39,4,];
+            function KUAIPAI(arr){
+                if(!Array.isArray(arr)){
+                    return;
+                }
+                 if(arr.length<=1){
+                    return arr;
+                 }
+
+                 var zhong=arr.splice(Math.floor(arr.length/2),1);
+                 var left=[];
+                 var right=[];
+                 arr.forEach(function(item,index){
+                    if(item<=zhong){
+                        left.push(item)
+                    }else{
+                        right.push(item)
+                    }
+                 })
+                 var newarr=[].concat(KUAIPAI(left),zhong,KUAIPAI(right));
+                 return newarr;
+            }
+            console.log(KUAIPAI(arr))
+    </script>
+</body>
+
+</html>

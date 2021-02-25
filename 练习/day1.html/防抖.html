@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // function move(e){
+        //     console.log(this);
+        //     alert('移动');
+        //     console.log(e);
+        // }
+        // var BOx=document.querySelector('div');
+        // BOx.onmouseenter=fangdou(move,800);
+        // function fangdou(fn,time){
+        //     var timer=null;
+        //     return function(){
+        //         var that=this;
+        //         var agr=arguments[0];
+        //         clearTimeout(timer);
+        //         timer=setTimeout(function(){
+        //             fn.call(that,agr)
+        //         },time)
+        //     }
+        // }
+
+        const BOX=document.querySelector('div');
+
+            function dianji(e){
+                console.log('老赵是猪');
+            }
+
+            BOX.onclick=fangdou(dianji,2000)
+        function fangdou(fn,time){
+            var timrs=null;
+            return function(){
+                clearTimeout(timrs);
+                var age=arguments[0];
+                var that=this;
+                timrs=setTimeout(function(){
+                    fn.call(that,age);
+                },time)
+            }
+        }
+    </script>
+</body>
+</html>

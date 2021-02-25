@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="box">
+            <span>
+                sdafdsafsa
+            </span>
+        </div>
+    </div>
+    <script>
+        var BOX=document.getElementById('box');
+        // BOX.innerHTML='<em>asld;fjsa</em>';
+        // console.log(BOX.innerText);
+        // BOX.outerHTML='<em>asld;fjsa</em>';
+        // console.log(BOX.outerText);
+
+
+        // BOX.dataset.study='xxx';
+        // BOX.setAttribute('CF','cs');
+
+        // var obj={};
+        // var o1={};
+        // var o2={};
+        //   obj.o1=1;
+        //   obj.o2-2;
+        //   console.log(obj.o1);
+        //   console.log(obj['o1']);
+
+        //   var c=1;
+        //   function c(c){
+        //       console.log(c);
+        //       var c=2
+        //   }
+        //   c(3);
+
+
+          function fn(){
+            this.x=function(){
+                console.log('fds')
+            }
+          }
+          var p=new fn();
+          var p1=new fn();
+          console.log(p.x);
+          console.log(p1.x);
+          console.log(p.x===p1.x);
+    </script>
+</body>
+</html>

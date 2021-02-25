@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function shen(obj){
+        //     if(pan(obj)==='object'){
+        //         var newobj={}
+        //     }
+        //     if(pan(obj)==='array'){
+        //         var newobj=[];
+        //     }else{
+        //         return obj
+        //     }
+        //     for(var key in obj){
+        //         newobj[key]=shen(obj[key])
+        //     }
+        //     return newobj;
+        // }
+        // function pan(obj){
+        //  return   Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+        // }
+        // var obj1 = {
+        //     name: "laowang",
+        //     age: 18,
+        //     eat: function () {
+        //         console.log("饺子")
+        //     },
+        //     sister: {
+        //         name: "haijing",
+        //         sex: "姑娘",
+        //         age: 2
+        //     }
+        // }
+        // var saf=shen(obj1);
+        // console.log(saf);
+
+
+        function shengkaobei(obj) {
+            if (panduan(obj) === 'object') {
+                var fuzhi1 = {}
+            } else
+            if (panduan(obj) === 'array') {
+                var fuzhi1 = [];
+            } else {
+                return obj;
+            };
+
+            for(var key in obj){
+                fuzhi1[key]=shengkaobei(obj[key]);
+            }
+            return fuzhi1;
+        }
+
+        function panduan(obj) {
+            return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+        }
+
+        const obj={
+            name:'老赵',
+            sex:'女'
+        }
+        console.log(shengkaobei(obj))
+    </script>
+</body>
+
+</html>

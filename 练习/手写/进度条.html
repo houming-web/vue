@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #jindu{
+            width: 800px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #jindu .bg{
+            width: 0;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="jindu">
+        <div class="bg"></div>
+    </div>
+    <div>当前加载<span class="bai">0</span></div>
+    <script>
+        var Jindu=document.querySelector('#jindu');
+        var Bg=document.querySelector('.bg');
+        var BAI=document.querySelector('.bai');
+        var ImAge=["https://s3.ax1x.com/2020/12/08/rSCogx.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCh59.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCI81.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCfUJ.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCWE4.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCHKK.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPCKf.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCqbD.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCbDO.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCTv6.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCOVe.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCXUH.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCj5d.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCxPA.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSCz8I.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPPr8.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPS2t.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPpxP.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPiqS.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPkVg.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPE5j.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPZPs.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPMrT.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPeGn.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPm2q.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPnx0.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPQqU.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSPKMV.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSP3a4.jpg",
+            "https://s3.ax1x.com/2020/12/08/rSP1ZF.jpg"
+        ]
+         var num=0;
+        ImAge.forEach(function(item,index){
+            var img=new Image();
+            img.src=item;
+
+            img.onload=function(){
+                num++;
+                var jin=num*Jindu.clientWidth/ImAge.length
+                
+                var shu=parseInt(num/ImAge.length*100) ;
+
+                BAI.textContent=shu+'%';
+                Bg.style.width=jin+'px';
+            }
+        })
+    </script>
+</body>
+</html>

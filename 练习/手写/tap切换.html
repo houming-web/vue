@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .tou{
+            width: 600px;
+            display: flex;
+        }
+        .text{
+            width: 600px;
+            height: 500px;
+        }
+        h2{
+            width: 200px;
+        
+        }
+        .text div{
+            width: 500px;
+            display: none;
+            text-align: center;
+            height: 500px;
+            line-height: 500px;
+            font-size: 40px;
+        }
+        .active{
+            background-color: yellow;
+        }
+        .text .show{
+            display: block;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="tou">
+            <h2 class="active">标题一</h2>
+            <h2>标题二</h2>
+            <h2>标题三</h2>
+        </div>
+        <div class="text">
+            <div class="show">内容一</div>
+            <div>内容二</div>
+            <div>内容三</div>
+        </div>
+    </div>
+    <script>
+        var BOX=document.querySelector('box');
+        var H2s=document.querySelectorAll('h2');
+        var DIVS=document.querySelectorAll('.text div');
+        console.log(DIVS[0]);
+
+        // H2s.forEach(function(item,index){
+        //     item.onclick=function(){
+        //         H2s.forEach(function(item,index){
+        //             item.classList.remove('active');
+        //             DIVS[index].classList.remove('show');
+        //         })              
+        //     item.classList.add('active');
+        //     DIVS[index].classList.add('show');
+        //     }
+        // })
+
+        //方法二
+        H2s.forEach(function(item,index){
+            item.onclick=function(){
+                var that=this;
+                H2s.forEach(function(item,index){
+                    if(that===H2s[index]){
+                    item.classList.add('active');
+                    DIVS[index].classList.add('show');
+                }else
+                {
+                   item.classList.remove('active');
+                    DIVS[index].classList.remove('show');
+                }
+                })             
+            }
+        })
+    </script>
+</body>
+</html>

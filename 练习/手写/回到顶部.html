@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50% 50%;
+            background-color: yellow;
+            position: fixed;
+            right: 100px;
+            bottom: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <script>
+        var BOX=document.querySelector('div');
+        window.onscroll=function(){
+            if(window.pageYOffset>1000){
+            BOX.style.display='block';
+        }else{
+            BOX.style.display='none';
+        }
+        }
+        
+        BOX.onclick=function(){
+            window.scrollTo(0,0)
+        }
+    </script>
+</body>
+</html>

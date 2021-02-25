@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // function jieliu(fn,time){
+        //     var lasttime=0;
+        //     return function(){
+        //         var nowtime=Date.now();
+        //         if(nowtime-lasttime<time){
+        //             return
+        //         }
+        //         lasttime=nowtime;
+        //         fn.call(this,arguments[0])
+        //     }
+        // }
+        function move(e){
+            console.log(e);
+            console.log(this);
+            console.log('12');
+        }
+        var BOX=document.querySelector('div');
+        BOX.onmouseenter=jieliu(move,2000);
+
+        function jieliu(fn,time){
+            var lasttime=0;
+            return function(){
+                var newtiem=Date.now();
+                var age=arguments[0];
+                if(newtiem-lasttime<time){
+                    return;
+                }
+                fn.call(this.age);
+                lasttime=newtiem;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">ASSIGN</button>
+    <button id="but1">REPLACE</button>
+    <button id="but2">RELOAD</button>
+    <script>
+        var BUT=document.querySelector('#but');
+        var BUT1=document.querySelector('#but1');
+        var BUT2=document.querySelector('#but2');
+        BUT.onclick=function(){
+            location.assign('http://www.baidu.com')
+        }
+        BUT1.onclick=function(){
+            location.reload('http://www.baidu.com')
+        }
+        BUT2.onclick=function(){
+            location.replace('http://www.baidu.com')
+        }
+    </script>
+</body>
+</html>

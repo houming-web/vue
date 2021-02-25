@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table td{
+            border: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="root">
+
+
+
+
+        <table  border="1" cellspacing="0"  >
+            <form>
+                <tr>
+                    <td>
+                        用户名:
+                    </td>
+                    <td colspan="2" ><input type="text" v-model='user.username'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码: </td>
+                    <td colspan="2" ><input type="text" v-model='user.password'> </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>
+                            女:
+                            <input type="radio" :value="0" v-model='user.sex'>
+                        </label>
+                    </td>
+                    <td colspan="2">
+                        <label>
+                            男:
+                            <input type="radio" :value="1" v-model='user.sex'>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>
+                            篮球:
+                            <input type="checkbox" value="basketball" v-model='user.happy'>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            足球:
+                            <input type="checkbox" value="football" v-model='user.happy'>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            羽毛球:
+                            <input type="checkbox" value="yumaoqiu" v-model='user.happy'>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <select v-model="user.city">
+                            <option value="0">未选择</option>
+                            <option value="beijing">北京</option>
+                            <option value="shanghai">上海</option>
+                            <option value="guangzhou">广州</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="2"> <textarea v-model="user.text"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="3" ><input type="submit" @click.prevent="submit"></td>
+                </tr>
+
+            </form>
+            </tabel>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                user: {
+                    username: '',
+                    password: '',
+                    sex: 0,
+                    happy: [],
+                    city: '0',
+                    text: '',
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
